@@ -1,0 +1,8 @@
+{
+  "name": "إبراهيم الشريف | Ibrahim Elshrief",
+  "description": "منصة إبراهيم الشريف - أعمال وبحوث، متجر رقمي، ومقالات حصرية | Ibrahim Elshrief",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

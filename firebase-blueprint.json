@@ -1,0 +1,251 @@
+{
+  "entities": {
+    "siteSettings": {
+      "title": "Site Settings",
+      "description": "Global website configuration, branding, navigation, SEO and contact metadata",
+      "type": "object",
+      "properties": {
+        "brandNameEn": { "type": "string" },
+        "brandNameAr": { "type": "string" },
+        "titleEn": { "type": "string" },
+        "titleAr": { "type": "string" },
+        "bioEn": { "type": "string" },
+        "bioAr": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "socialLinks": { "type": "object" },
+        "navigation": { "type": "array" },
+        "footerTextEn": { "type": "string" },
+        "footerTextAr": { "type": "string" },
+        "seoTitle": { "type": "string" },
+        "seoDescription": { "type": "string" },
+        "sectionDividers": { "type": "object" }
+      },
+      "required": ["brandNameEn", "brandNameAr"]
+    },
+    "homeSections": {
+      "title": "Home Page Sections",
+      "description": "Modular homepage sections configuration",
+      "type": "object",
+      "properties": {
+        "sectionId": { "type": "string" },
+        "enabled": { "type": "boolean" },
+        "order": { "type": "number" },
+        "bgVariant": { "type": "string" },
+        "bgCustomColor": { "type": "string" },
+        "data": { "type": "object" }
+      },
+      "required": ["sectionId", "enabled"]
+    },
+    "portfolio": {
+      "title": "Portfolio Projects",
+      "description": "Multimedia portfolio projects and case studies",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string" },
+        "titleAr": { "type": "string" },
+        "slug": { "type": "string" },
+        "shortDescEn": { "type": "string" },
+        "shortDescAr": { "type": "string" },
+        "fullDescEn": { "type": "string" },
+        "fullDescAr": { "type": "string" },
+        "category": { "type": "string" },
+        "tags": { "type": "array" },
+        "thumbnail": { "type": "string" },
+        "media": { "type": "array" },
+        "projectUrl": { "type": "string" },
+        "githubUrl": { "type": "string" },
+        "client": { "type": "string" },
+        "year": { "type": "string" },
+        "featured": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "createdAt": { "type": "string" },
+        "isArchived": { "type": "boolean" },
+        "archivedAt": { "type": "string" }
+      },
+      "required": ["titleEn", "titleAr", "status"]
+    },
+    "articles": {
+      "title": "Articles and Blog",
+      "description": "Bilingual articles, thoughts, and technical writeups",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string" },
+        "titleAr": { "type": "string" },
+        "slug": { "type": "string" },
+        "excerptEn": { "type": "string" },
+        "excerptAr": { "type": "string" },
+        "contentEn": { "type": "string" },
+        "contentAr": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "category": { "type": "string" },
+        "tags": { "type": "array" },
+        "author": { "type": "string" },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "featured": { "type": "boolean" },
+        "publishedAt": { "type": "string" },
+        "views": { "type": "number" },
+        "isArchived": { "type": "boolean" },
+        "archivedAt": { "type": "string" }
+      },
+      "required": ["titleEn", "titleAr", "status"]
+    },
+    "products": {
+      "title": "Store Products",
+      "description": "Digital and physical goods, courses, templates, and services",
+      "type": "object",
+      "properties": {
+        "nameEn": { "type": "string" },
+        "nameAr": { "type": "string" },
+        "slug": { "type": "string" },
+        "descriptionEn": { "type": "string" },
+        "descriptionAr": { "type": "string" },
+        "price": { "type": "number" },
+        "compareAtPrice": { "type": "number" },
+        "type": { "type": "string", "enum": ["digital", "physical", "service"] },
+        "category": { "type": "string" },
+        "images": { "type": "array" },
+        "stock": { "type": "number" },
+        "lowStockThreshold": { "type": "number" },
+        "sku": { "type": "string" },
+        "digitalFileUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "featured": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "isArchived": { "type": "boolean" },
+        "archivedAt": { "type": "string" }
+      },
+      "required": ["nameEn", "nameAr", "price", "type", "status"]
+    },
+    "orders": {
+      "title": "Customer Orders",
+      "description": "Store purchases and checkout records",
+      "type": "object",
+      "properties": {
+        "orderNumber": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerName": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "total": { "type": "number" },
+        "currency": { "type": "string" },
+        "orderStatus": { "type": "string", "enum": ["pending", "paid", "processing", "shipped", "completed", "cancelled", "refunded"] },
+        "paymentStatus": { "type": "string", "enum": ["unpaid", "paid", "refunded"] },
+        "paymentMethod": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["orderNumber", "customerEmail", "total", "orderStatus"]
+    },
+    "inventoryTransactions": {
+      "title": "Inventory Audit Log",
+      "description": "Stock adjustments and history",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "type": { "type": "string", "enum": ["in", "out", "adjustment", "sale"] },
+        "quantity": { "type": "number" },
+        "previousStock": { "type": "number" },
+        "newStock": { "type": "number" },
+        "reason": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["productId", "quantity", "type"]
+    },
+    "messages": {
+      "title": "Contact Inquiries",
+      "description": "Visitor contact messages and inquiries",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["unread", "read", "archived"] },
+        "tag": { "type": "string", "enum": ["work", "personal", "urgent", "general"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "email", "message"]
+    },
+    "media": {
+      "title": "Media Library",
+      "description": "Uploaded media items and metadata",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "type": { "type": "string" },
+        "size": { "type": "number" },
+        "category": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "url", "type"]
+    },
+    "users": {
+      "title": "User Profiles & RBAC",
+      "description": "User accounts and authorization roles",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["OWNER", "ADMIN", "EDITOR", "CUSTOMER"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "subscribers": {
+      "title": "Newsletter Subscribers",
+      "description": "Email subscribers for technical updates and platform news",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "language": { "type": "string" },
+        "subscribedAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "unsubscribed"] },
+        "source": { "type": "string" }
+      },
+      "required": ["email", "status"]
+    },
+    "reviews": {
+      "title": "Product Reviews",
+      "description": "Customer star ratings and written feedback for store products",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorEmail": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "verifiedPurchase": { "type": "boolean" }
+      },
+      "required": ["productId", "authorName", "rating", "comment"]
+    },
+    "emailCampaigns": {
+      "title": "Email Campaigns & Broadcasts",
+      "description": "Sent email campaigns, newsletters and announcements to subscribers",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "type": { "type": "string", "enum": ["welcome", "article_published", "product_offer", "custom_broadcast", "test"] },
+        "sentAt": { "type": "string" },
+        "recipientsCount": { "type": "number" },
+        "status": { "type": "string", "enum": ["sent", "partially_sent", "failed", "simulated"] }
+      },
+      "required": ["title", "subject", "sentAt", "status"]
+    },
+    "mail": {
+      "title": "Mail Outbox",
+      "description": "Trigger Email extension outbox for outbound email dispatch",
+      "type": "object",
+      "properties": {
+        "to": { "type": "array" },
+        "message": { "type": "object" }
+      },
+      "required": ["to", "message"]
+    }
+  }
+}
